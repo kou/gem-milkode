@@ -22,7 +22,7 @@ milk_command_line = [
 ]
 sudo_user = ENV["SUDO_USER"]
 if sudo_user
-  milk_command_line.unshift("sudo", "-u", ENV["SUDO_USER"], "-H")
+  milk_command_line.unshift("sudo", "-u", sudo_user, "-H")
   milkode_directory = File.expand_path("~#{sudo_user}/.milkode")
 else
   milkode_directory = File.expand_path("~/.milkode")
