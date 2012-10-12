@@ -18,12 +18,12 @@
 
 Gem::Specification.new do |spec|
   spec.name = "gem-milkode"
-  spec.version = "1.0.1"
+  spec.version = "1.0.2"
   spec.authors = ["Kouhei Sutou"]
   spec.email = ["kou@cozmixng.org"]
   spec.summary = "Make all installed gems milkable"
   spec.description = "Add installed gems to Milkode index autamatically"
-  spec.homepage = "https://github.com/kou/spec-milkode"
+  spec.homepage = "https://github.com/kou/gem-milkode"
 
   spec.files = ["README.md", "COPYING"]
   spec.files += Dir.glob("lib/**/*.rb")
