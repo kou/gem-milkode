@@ -17,8 +17,8 @@
 # <http://www.gnu.org/licenses/>.
 
 Gem::Specification.new do |spec|
-  spec.name = "spec-milkode"
-  spec.version = "1.0.0"
+  spec.name = "gem-milkode"
+  spec.version = "1.0.1"
   spec.authors = ["Kouhei Sutou"]
   spec.email = ["kou@cozmixng.org"]
   spec.summary = "Make all installed gems milkable"
