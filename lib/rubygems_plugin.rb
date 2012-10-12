@@ -20,10 +20,10 @@ milk_command_line = [
   Gem.ruby,
   Gem.bin_path("milkode", "milk"),
 ]
-user = ENV["SUDO_USER"]
-if user
+sudo_user = ENV["SUDO_USER"]
+if sudo_user
   milk_command_line.unshift("sudo", "-u", ENV["SUDO_USER"], "-H")
-  milkode_directory = File.expand_path("~#{user}/.milkode")
+  milkode_directory = File.expand_path("~#{sudo_user}/.milkode")
 else
   milkode_directory = File.expand_path("~/.milkode")
 end
