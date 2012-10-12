@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- mode: ruby; coding: utf-8 -*-
 #
 # Copyright (C) 2012  Kouhei Sutou <kou@cozmixng.org>
 #
