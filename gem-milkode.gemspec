@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.description = "Add installed gems to Milkode index autamatically"
   spec.homepage = "https://github.com/kou/spec-milkode"
 
-  spec.files = ["REAMDE.md", "COPYING"]
+  spec.files = ["README.md", "COPYING"]
   spec.files += Dir.glob("lib/**/*.rb")
   spec.require_paths = ["lib"]
 
