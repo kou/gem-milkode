@@ -30,7 +30,7 @@ end
 
 ensure_init = lambda do
   unless File.exist?(milkode_directory)
-    system(*(milk_command_line + ["init"]))
+    system(*(milk_command_line + ["init", "--default"]))
   end
 end
 
