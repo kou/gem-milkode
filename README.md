@@ -1,6 +1,6 @@
 # gem-milkode
 
-gem-milkode makes all installed specs milkable. You can search source
+gem-milkode makes all installed gems milkable. You can search source
 codes of installed gems automatically.
 
 ## How to use
