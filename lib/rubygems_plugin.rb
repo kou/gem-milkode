@@ -14,6 +14,19 @@
 # License along with this program.  If not, see
 # <http://www.gnu.org/licenses/>.
 
+package_name = "gem-milkode"
+
+current_version = File.basename(File.dirname(File.dirname(__FILE__)))
+rubygems_dir = File.join(File.dirname(__FILE__), "..", "..")
+installed_directories = Dir.glob(File.join(rubygems_dir, "#{package_name}-*"))
+installed_packages = installed_directories.collect do |directory|
+  File.basename(directory)
+end
+sorted_installed_versions = installed_packages.sort_by do |package_name|
+  package_name.gsub(/\A#{Regexp.escape(package_name)}-/, "")
+end
+
+if current_version == sorted_installed_versions.last
 require "rubygems"
 
 milk_command_line = [
@@ -42,4 +55,5 @@ end
 Gem.post_uninstall do |uninstaller|
   ensure_init.call
   system(*(milk_command_line + ["remove", uninstaller.spec.gem_dir]))
+end
 end
