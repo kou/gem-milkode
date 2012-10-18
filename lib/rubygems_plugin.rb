@@ -27,33 +27,33 @@ sorted_installed_versions = installed_packages.sort_by do |package_name|
 end
 
 if current_version == sorted_installed_versions.last
-require "rubygems"
+  require "rubygems"
 
-milk_command_line = [
-  Gem.ruby,
-  Gem.bin_path("milkode", "milk"),
-]
-sudo_user = ENV["SUDO_USER"]
-if sudo_user
-  milk_command_line.unshift("sudo", "-u", sudo_user, "-H")
-  milkode_directory = File.expand_path("~#{sudo_user}/.milkode")
-else
-  milkode_directory = File.expand_path("~/.milkode")
-end
-
-ensure_init = lambda do
-  unless File.exist?(milkode_directory)
-    system(*(milk_command_line + ["init", "--default"]))
+  milk_command_line = [
+    Gem.ruby,
+    Gem.bin_path("milkode", "milk"),
+  ]
+  sudo_user = ENV["SUDO_USER"]
+  if sudo_user
+    milk_command_line.unshift("sudo", "-u", sudo_user, "-H")
+    milkode_directory = File.expand_path("~#{sudo_user}/.milkode")
+  else
+    milkode_directory = File.expand_path("~/.milkode")
   end
-end
 
-Gem.post_install do |installer|
-  ensure_init.call
-  system(*(milk_command_line + ["add", installer.gem_dir]))
-end
+  ensure_init = lambda do
+    unless File.exist?(milkode_directory)
+      system(*(milk_command_line + ["init", "--default"]))
+    end
+  end
 
-Gem.post_uninstall do |uninstaller|
-  ensure_init.call
-  system(*(milk_command_line + ["remove", uninstaller.spec.gem_dir]))
-end
+  Gem.post_install do |installer|
+    ensure_init.call
+    system(*(milk_command_line + ["add", installer.gem_dir]))
+  end
+
+  Gem.post_uninstall do |uninstaller|
+    ensure_init.call
+    system(*(milk_command_line + ["remove", uninstaller.spec.gem_dir]))
+  end
 end
