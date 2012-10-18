@@ -18,7 +18,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "gem-milkode"
-  spec.version = "1.0.3"
+  spec.version = "1.0.4"
   spec.authors = ["Kouhei Sutou"]
   spec.email = ["kou@cozmixng.org"]
   spec.summary = "Make all installed gems milkable"
