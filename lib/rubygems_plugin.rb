@@ -54,6 +54,6 @@ if current_version == sorted_installed_versions.last
 
   Gem.post_uninstall do |uninstaller|
     ensure_init.call
-    system(*(milk_command_line + ["remove", uninstaller.spec.gem_dir]))
+    system(*(milk_command_line + ["rm", uninstaller.spec.gem_dir]))
   end
 end
