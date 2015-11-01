@@ -29,6 +29,6 @@ Gem::Specification.new do |spec|
   spec.files += Dir.glob("lib/**/*.rb")
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency("milkode")
+  spec.add_runtime_dependency("milkode", ">=1.8.4")
   spec.add_development_dependency("bundler")
 end
